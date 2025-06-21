@@ -6,13 +6,63 @@
     <title>Servicios de Mantenimiento</title>
     <link rel="stylesheet" href="css/mcStyle.css">
     <link rel="icon" type="image/png" href="images/logo (2).png" sizes="10px">
-
+    <style>
+        /* Estilo para el anuncio de Bowie */
+        .empleado-del-mes {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #dee2e6;
+            max-width: 150px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .empleado-del-mes:hover {
+            transform: scale(1.05);
+        }
+        
+        .empleado-del-mes img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto 5px;
+        }
+        
+        .empleado-del-mes p {
+            margin: 0;
+            font-weight: bold;
+            color: #495057;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .empleado-del-mes {
+                top: 10px;
+                right: 10px;
+                max-width: 120px;
+            }
+        }
+    </style>
 </head>
-<a href="https://wa.me/5215522516729" class="whatsapp" target="_blank" title="¡Chatea con nosotros!">
-💬
-</a>
 
 <body>
+    <!-- Anuncio de Bowie como Empleado del Mes -->
+    <div class="empleado-del-mes">
+        <img src="images/bowie.png" alt="Bowie">
+        <p>Empleado del Mes 🏆</p>
+    </div>
+    
+    <a href="https://wa.me/5215522516729" class="whatsapp" target="_blank" title="¡Chatea con nosotros!">
+    💬
+    </a>
+
     <header>
         <h1>Servicios de Mantenimiento de Computadoras</h1>
     </header>
