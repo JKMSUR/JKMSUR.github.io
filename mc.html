@@ -3,64 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios de Mantenimiento</title>
+    <title>SAU | Servicios Profesionales de Mantenimiento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/mcStyle.css">
-    <link rel="icon" type="image/png" href="images/logo (2).png" sizes="10px">
+    <link rel="icon" type="image/png" href="images/logo (2).png">
     <style>
-        /* Estilo para el anuncio de Bowie */
+        :root {
+            --primary: #0A1128;
+            --secondary: #1A3A8F;
+            --accent: #FFD700;
+            --accent-dark: #FFC000;
+            --light: #F8F9FF;
+            --dark: #050A1E;
+            --text: #2D3748;
+            --text-light: #718096;
+            --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Header Élite Mejorado */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(10, 17, 40, 0.4);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 50px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.08) 0%, transparent 30%);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin: 0 auto;
+            max-width: 1000px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            animation: fadeInDown 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            line-height: 1.2;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            z-index: 2;
+        }
+
+        /* Servicios Ultra Premium */
+        main.servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            padding: 0 20px 100px;
+            max-width: 1500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .servicio {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            border: none;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .servicio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 58, 143, 0.15), rgba(10, 17, 40, 0.1));
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+            border-radius: 20px;
+        }
+
+        .servicio:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .servicio:hover::before {
+            opacity: 1;
+        }
+
+        .servicio-img-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .servicio img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom: 5px solid var(--accent);
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .servicio:hover img {
+            transform: scale(1.1);
+        }
+
+        .servicio-content {
+            padding: 30px;
+            position: relative;
+        }
+
+        .servicio h2 {
+            margin: 0 0 20px;
+            color: var(--secondary);
+            font-size: clamp(1.3rem, 1.5vw, 1.8rem);
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .servicio h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            transition: var(--transition);
+        }
+
+        .servicio:hover h2::after {
+            width: 100px;
+        }
+
+        .servicio p {
+            color: var(--text-light);
+            font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Footer de Lujo Mejorado */
+        footer {
+            background: var(--dark);
+            text-align: center;
+            padding: 80px 20px 40px;
+            color: white;
+            position: relative;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+        }
+
+        footer p {
+            margin: 15px 0;
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            color: rgba(255,255,255,0.8);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer a {
+            color: var(--accent);
+            transition: var(--transition);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        footer a:hover::after {
+            width: 100%;
+        }
+
+        /* Elementos Especiales Mejorados */
         .empleado-del-mes {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 40px;
+            right: 40px;
             z-index: 1000;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 1px solid #dee2e6;
-            max-width: 150px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 15px 35px rgba(255, 192, 0, 0.4);
+            border: 4px solid white;
+            max-width: 200px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
+            animation: float 6s ease-in-out infinite;
+            transform-style: preserve-3d;
         }
-        
+
+        .empleado-del-mes::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(15px);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
         .empleado-del-mes:hover {
-            transform: scale(1.05);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 20px 45px rgba(255, 192, 0, 0.6);
         }
-        
+
         .empleado-del-mes img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 15px;
             display: block;
-            margin: 0 auto 5px;
+            margin: 0 auto 15px;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateZ(20px);
         }
-        
+
         .empleado-del-mes p {
             margin: 0;
-            font-weight: bold;
-            color: #495057;
-            font-size: 14px;
+            font-weight: 800;
+            color: var(--dark);
+            font-size: clamp(1rem, 1.2vw, 1.3rem);
+            text-shadow: 0 2px 3px rgba(255,255,255,0.5);
+            transform: translateZ(10px);
         }
-        
-        @media (max-width: 768px) {
+
+        .whatsapp {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            font-size: 40px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            z-index: 1000;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+            transform-style: preserve-3d;
+        }
+
+        .whatsapp::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(10px);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 20px 45px rgba(37, 211, 102, 0.7);
+        }
+
+        /* Efecto de Partículas Mejorado */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, var(--accent), rgba(255, 215, 0, 0.3));
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+
+        /* Animaciones Premium Mejoradas */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Responsive Ultra Mejorado */
+        @media (max-width: 1200px) {
+            main.servicios {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            header {
+                padding: 80px 20px;
+            }
+            
+            .servicio-img-container {
+                height: 220px;
+            }
+            
             .empleado-del-mes {
-                top: 10px;
-                right: 10px;
+                top: 30px;
+                right: 30px;
+                max-width: 180px;
+            }
+            
+            .whatsapp {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+                bottom: 30px;
+                right: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 70px 20px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+                margin-bottom: 30px;
+            }
+            
+            main.servicios {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+                padding: 0 15px 80px;
+            }
+            
+            .servicio-img-container {
+                height: 200px;
+            }
+            
+            .servicio-content {
+                padding: 25px;
+            }
+            
+            footer {
+                padding: 70px 20px 35px;
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+            }
+            
+            .empleado-del-mes {
+                max-width: 160px;
+                padding: 15px;
+            }
+            
+            .empleado-del-mes img {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 60px 20px;
+            }
+            
+            main.servicios {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            
+            .servicio:hover {
+                transform: translateY(-10px) scale(1.02);
+            }
+            
+            .empleado-del-mes {
+                top: 20px;
+                right: 20px;
+                max-width: 140px;
+                padding: 12px;
+            }
+            
+            .whatsapp {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .empleado-del-mes {
                 max-width: 120px;
+                padding: 10px;
+            }
+            
+            .empleado-del-mes p {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Efecto de Partículas Mejorado -->
+    <div class="particles" id="particles-js"></div>
+    
     <!-- Anuncio de Bowie como Empleado del Mes -->
     <div class="empleado-del-mes">
         <img src="bowie.png" alt="Bowie">
         <p>Empleado del Mes 🏆</p>
     </div>
     
+    <!-- Botón de WhatsApp Mejorado -->
     <a href="https://wa.me/5215522516729" class="whatsapp" target="_blank" title="¡Chatea con nosotros!">
-    💬
+        💬
     </a>
 
     <header>
@@ -69,57 +529,83 @@
 
     <main class="servicios">
         <div class="servicio">
-            <img src="images/limpiezaFisica.png" alt="Limpieza Física">
-            <h2>Limpieza Física</h2>
-            <p>Eliminamos polvo y suciedad del hardware para evitar sobrecalentamientos y fallas físicas.</p>
+            <div class="servicio-img-container">
+                <img src="images/limpiezaFisica.png" alt="Limpieza Física">
+            </div>
+            <div class="servicio-content">
+                <h2>Limpieza Física</h2>
+                <p>Eliminamos polvo y suciedad del hardware para evitar sobrecalentamientos y fallas físicas.</p>
+            </div>
         </div>
 
         <div class="servicio">
-            <img src="images/optimizacionComputadoras.jpg" alt="Optimización de Computadoras">
-            <h2>Optimización de Computadoras</h2>
-            <p>Mejoramos el rendimiento del sistema eliminando archivos basura, desfragmentando el disco y optimizando la memoria.</p>
+            <div class="servicio-img-container">
+                <img src="images/optimizacionComputadoras.jpg" alt="Optimización de Computadoras">
+            </div>
+            <div class="servicio-content">
+                <h2>Optimización de Computadoras</h2>
+                <p>Mejoramos el rendimiento del sistema eliminando archivos basura y optimizando la memoria.</p>
+            </div>
         </div>
 
         <div class="servicio">
-            <img src="images/office.jpg" alt="Instalación de Office">
-            <h2>Instalación de Office</h2>
-            <p>Instalamos Microsoft Office o alternativas, configurando Word, Excel, PowerPoint y más según tus necesidades.</p>
+            <div class="servicio-img-container">
+                <img src="images/office.jpg" alt="Instalación de Office">
+            </div>
+            <div class="servicio-content">
+                <h2>Instalación de Office</h2>
+                <p>Instalamos Microsoft Office o alternativas, configurando Word, Excel, PowerPoint y más según tus necesidades.</p>
+            </div>
         </div>
 
         <div class="servicio">
-            <img src="images/pastaTermica.jpg" alt="Cambio de Pasta Térmica">
-            <h2>Cambio de Pasta Térmica</h2>
-            <p>Renovamos la pasta térmica de tu procesador para mejorar la disipación de calor y prolongar la vida útil.</p>
+            <div class="servicio-img-container">
+                <img src="images/pastaTermica.jpg" alt="Cambio de Pasta Térmica">
+            </div>
+            <div class="servicio-content">
+                <h2>Cambio de Pasta Térmica</h2>
+                <p>Renovamos la pasta térmica de tu procesador para mejorar la disipación de calor y prolongar la vida útil.</p>
+            </div>
         </div>
 
         <div class="servicio">
-            <img src="images/cableEthernet.jpg" alt="Cables Ethernet">
-            <h2>Creación y Reparación de Cables Ethernet</h2>
-            <p>Fabricamos cables personalizados y reparamos conectores dañados para una red más estable.</p>
+            <div class="servicio-img-container">
+                <img src="images/cableEthernet.jpg" alt="Cables Ethernet">
+            </div>
+            <div class="servicio-content">
+                <h2>Creación y Reparación de Cables Ethernet</h2>
+                <p>Fabricamos cables personalizados y reparamos conectores dañados para una red más estable.</p>
+            </div>
         </div>
 
         <div class="servicio">
-            <img src="images/antivirus.jpg" alt="Instalación de Antivirus">
-            <h2>Instalación de Antivirus</h2>
-            <p>Protegemos tu equipo contra virus, malware y amenazas en línea con herramientas de seguridad confiables.</p>
+            <div class="servicio-img-container">
+                <img src="images/antivirus.jpg" alt="Instalación de Antivirus">
+            </div>
+            <div class="servicio-content">
+                <h2>Instalación de Antivirus</h2>
+                <p>Protegemos tu equipo contra virus, malware y amenazas en línea con herramientas de seguridad confiables.</p>
+            </div>
         </div>
 
         <div class="servicio">
-            <img src="images/paginasWeb.jpg" alt="Páginas Web">
-            <h2>Creación de Páginas Web</h2>
-            <p>Diseñamos páginas web estáticas personalizadas según tu estilo, ideales para negocios o portafolios personales.</p>
+            <div class="servicio-img-container">
+                <img src="images/paginasWeb.jpg" alt="Páginas Web">
+            </div>
+            <div class="servicio-content">
+                <h2>Creación de Páginas Web</h2>
+                <p>Diseñamos páginas web estáticas personalizadas según tu estilo, ideales para negocios o portafolios personales.</p>
+            </div>
         </div>
 
         <div class="servicio">
-            <img src="images/respaldo.jpg" alt="Respaldo de Información">
-            <h2>Respaldos de Memoria y Almacenamiento</h2>
-            <p>Realizamos copias de seguridad de tus archivos importantes en discos duros, memorias USB o la nube.</p>
-        </div>
-
-        <div class="servicio">
-            <img src="images/componentes.jpg" alt="Componentes Electrónicos">
-            <h2>Venta de Componentes Electrónicos</h2>
-            <p>Ofrecemos una variedad de partes y accesorios para computadoras: memorias RAM, discos duros, ventiladores y más.</p>
+            <div class="servicio-img-container">
+                <img src="images/respaldo.jpg" alt="Respaldo de Información">
+            </div>
+            <div class="servicio-content">
+                <h2>Respaldos de Memoria y Almacenamiento</h2>
+                <p>Realizamos copias de seguridad de tus archivos importantes en discos duros, memorias USB o la nube.</p>
+            </div>
         </div>
     </main>
 
@@ -127,5 +613,41 @@
         <p>Contacto: <a href="mailto:sebastianaboytes199@gmail.com">sebastianaboytes199@gmail.com</a> | Tel: 5522516729</p>
         <p>&copy; 2025 SAU. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Efecto de partículas premium mejorado
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles-js');
+            const particleCount = window.innerWidth < 768 ? 20 : 40;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio entre 3px y 8px
+                const size = Math.random() * 5 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.6 + 0.2;
+                
+                // Animación única para cada partícula
+                const duration = Math.random() * 25 + 15;
+                const delay = Math.random() * 10;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                // Efecto de profundidad
+                const translateZ = Math.random() * 50;
+                particle.style.transform = `translateZ(${translateZ}px)`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
 </body>
 </html>
