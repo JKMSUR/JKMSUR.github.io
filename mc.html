@@ -21,6 +21,10 @@
             --text: #2D3748;
             --text-light: #718096;
             --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.25);
         }
 
         * {
@@ -36,19 +40,21 @@
             line-height: 1.7;
             overflow-x: hidden;
             position: relative;
+            scroll-behavior: smooth;
         }
 
-        /* Header Élite Mejorado */
+        /* Header Premium */
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 100px 20px;
+            padding: 120px 20px;
             text-align: center;
             color: white;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(10, 17, 40, 0.4);
+            box-shadow: var(--shadow-xl);
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            margin-bottom: 50px;
+            margin-bottom: 80px;
+            z-index: 10;
         }
 
         header::before {
@@ -59,14 +65,15 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.08) 0%, transparent 30%);
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 30%);
             z-index: 1;
+            animation: gradientPulse 12s ease infinite alternate;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 5rem);
             font-weight: 800;
             margin: 0 auto;
             max-width: 1000px;
@@ -75,6 +82,18 @@
             text-shadow: 0 4px 15px rgba(0,0,0,0.4);
             animation: fadeInDown 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
             line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            max-width: 700px;
+            margin: 20px auto 0;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
 
         header::after {
@@ -88,28 +107,29 @@
             z-index: 2;
         }
 
-        /* Servicios Ultra Premium */
+        /* Servicios Premium */
         main.servicios {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 50px;
-            padding: 0 20px 100px;
-            max-width: 1500px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+            padding: 0 40px 120px;
+            max-width: 1600px;
             margin: 0 auto;
             position: relative;
         }
 
         .servicio {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-lg);
             transition: var(--transition);
             position: relative;
             z-index: 1;
             border: none;
             transform-style: preserve-3d;
             perspective: 1000px;
+            will-change: transform;
         }
 
         .servicio::before {
@@ -123,12 +143,12 @@
             z-index: -1;
             opacity: 0;
             transition: var(--transition);
-            border-radius: 20px;
+            border-radius: 24px;
         }
 
         .servicio:hover {
             transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-xl);
         }
 
         .servicio:hover::before {
@@ -136,7 +156,7 @@
         }
 
         .servicio-img-container {
-            height: 250px;
+            height: 280px;
             overflow: hidden;
             position: relative;
         }
@@ -155,17 +175,18 @@
         }
 
         .servicio-content {
-            padding: 30px;
+            padding: 32px;
             position: relative;
         }
 
         .servicio h2 {
             margin: 0 0 20px;
             color: var(--secondary);
-            font-size: clamp(1.3rem, 1.5vw, 1.8rem);
+            font-size: clamp(1.4rem, 1.6vw, 2rem);
             font-weight: 800;
             position: relative;
             padding-bottom: 15px;
+            line-height: 1.3;
         }
 
         .servicio h2::after {
@@ -177,6 +198,7 @@
             height: 4px;
             background: linear-gradient(90deg, var(--accent), var(--accent-dark));
             transition: var(--transition);
+            border-radius: 2px;
         }
 
         .servicio:hover h2::after {
@@ -185,19 +207,20 @@
 
         .servicio p {
             color: var(--text-light);
-            font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+            font-size: clamp(1rem, 1.2vw, 1.15rem);
             line-height: 1.7;
             margin-bottom: 0;
         }
 
-        /* Footer de Lujo Mejorado */
+        /* Footer Premium */
         footer {
             background: var(--dark);
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 100px 20px 50px;
             color: white;
             position: relative;
             clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+            z-index: 10;
         }
 
         footer::before {
@@ -210,13 +233,24 @@
             background: linear-gradient(90deg, var(--accent), var(--accent-dark));
         }
 
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            width: 120px;
+            margin-bottom: 30px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
         footer p {
             margin: 15px 0;
-            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
             color: rgba(255,255,255,0.8);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         footer a {
@@ -246,7 +280,33 @@
             width: 100%;
         }
 
-        /* Elementos Especiales Mejorados */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        /* Elementos Especiales Premium */
         .empleado-del-mes {
             position: fixed;
             top: 40px;
@@ -257,11 +317,13 @@
             padding: 20px;
             box-shadow: 0 15px 35px rgba(255, 192, 0, 0.4);
             border: 4px solid white;
-            max-width: 200px;
+            max-width: 220px;
             text-align: center;
             transition: var(--transition);
             animation: float 6s ease-in-out infinite;
             transform-style: preserve-3d;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
         }
 
         .empleado-del-mes::before {
@@ -291,15 +353,20 @@
             display: block;
             margin: 0 auto 15px;
             border: 4px solid white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-md);
             transform: translateZ(20px);
+            transition: var(--transition);
+        }
+
+        .empleado-del-mes:hover img {
+            transform: translateZ(20px) scale(1.05);
         }
 
         .empleado-del-mes p {
             margin: 0;
             font-weight: 800;
             color: var(--dark);
-            font-size: clamp(1rem, 1.2vw, 1.3rem);
+            font-size: clamp(1.1rem, 1.3vw, 1.4rem);
             text-shadow: 0 2px 3px rgba(255,255,255,0.5);
             transform: translateZ(10px);
         }
@@ -310,9 +377,9 @@
             right: 40px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            font-size: 40px;
-            width: 80px;
-            height: 80px;
+            font-size: 45px;
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -345,7 +412,7 @@
             box-shadow: 0 20px 45px rgba(37, 211, 102, 0.7);
         }
 
-        /* Efecto de Partículas Mejorado */
+        /* Efecto de Partículas Premium */
         .particles {
             position: fixed;
             top: 0;
@@ -354,6 +421,7 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
+            overflow: hidden;
         }
 
         .particle {
@@ -362,13 +430,43 @@
             border-radius: 50%;
             pointer-events: none;
             filter: blur(1px);
+            will-change: transform;
         }
 
-        /* Animaciones Premium Mejoradas */
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--accent), var(--accent-dark));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-dark);
+        }
+
+        /* Animaciones Premium */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
                 transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -394,32 +492,39 @@
             100% { opacity: 0.5; }
         }
 
-        /* Responsive Ultra Mejorado */
+        @keyframes gradientPulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Responsive Ultra */
         @media (max-width: 1200px) {
             main.servicios {
-                gap: 40px;
+                gap: 50px;
+                padding: 0 30px 100px;
             }
         }
 
         @media (max-width: 992px) {
             header {
-                padding: 80px 20px;
+                padding: 100px 20px;
             }
             
             .servicio-img-container {
-                height: 220px;
+                height: 240px;
             }
             
             .empleado-del-mes {
                 top: 30px;
                 right: 30px;
-                max-width: 180px;
+                max-width: 200px;
             }
             
             .whatsapp {
-                width: 70px;
-                height: 70px;
-                font-size: 35px;
+                width: 75px;
+                height: 75px;
+                font-size: 40px;
                 bottom: 30px;
                 right: 30px;
             }
@@ -427,48 +532,53 @@
 
         @media (max-width: 768px) {
             header {
-                padding: 70px 20px;
+                padding: 80px 20px;
                 clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-                margin-bottom: 30px;
+                margin-bottom: 50px;
             }
             
             main.servicios {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 30px;
-                padding: 0 15px 80px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+                padding: 0 20px 80px;
             }
             
             .servicio-img-container {
-                height: 200px;
+                height: 220px;
             }
             
             .servicio-content {
-                padding: 25px;
+                padding: 28px;
             }
             
             footer {
-                padding: 70px 20px 35px;
+                padding: 80px 20px 40px;
                 clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
             }
             
             .empleado-del-mes {
-                max-width: 160px;
-                padding: 15px;
+                max-width: 180px;
+                padding: 18px;
             }
             
             .empleado-del-mes img {
-                margin-bottom: 10px;
+                margin-bottom: 12px;
             }
         }
 
         @media (max-width: 576px) {
             header {
-                padding: 60px 20px;
+                padding: 70px 20px;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
             }
             
             main.servicios {
                 grid-template-columns: 1fr;
-                max-width: 400px;
+                max-width: 450px;
+                gap: 35px;
             }
             
             .servicio:hover {
@@ -478,14 +588,14 @@
             .empleado-del-mes {
                 top: 20px;
                 right: 20px;
-                max-width: 140px;
-                padding: 12px;
+                max-width: 160px;
+                padding: 15px;
             }
             
             .whatsapp {
-                width: 60px;
-                height: 60px;
-                font-size: 30px;
+                width: 65px;
+                height: 65px;
+                font-size: 35px;
                 bottom: 20px;
                 right: 20px;
             }
@@ -493,23 +603,27 @@
 
         @media (max-width: 400px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1rem;
             }
             
             .empleado-del-mes {
-                max-width: 120px;
-                padding: 10px;
+                max-width: 140px;
+                padding: 12px;
             }
             
             .empleado-del-mes p {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Efecto de Partículas Mejorado -->
+    <!-- Efecto de Partículas Premium -->
     <div class="particles" id="particles-js"></div>
     
     <!-- Anuncio de Bowie como Empleado del Mes -->
@@ -518,13 +632,14 @@
         <p>Empleado del Mes 🏆</p>
     </div>
     
-    <!-- Botón de WhatsApp Mejorado -->
+    <!-- Botón de WhatsApp Premium -->
     <a href="https://wa.me/5215522516729" class="whatsapp" target="_blank" title="¡Chatea con nosotros!">
-        💬
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <header>
-        <h1>Servicios de Mantenimiento de Computadoras</h1>
+        <h1>Servicios Profesionales de Mantenimiento</h1>
+        <p class="header-subtitle">Soluciones tecnológicas de alta calidad para optimizar el rendimiento de tus equipos</p>
     </header>
 
     <main class="servicios">
@@ -533,8 +648,8 @@
                 <img src="images/limpiezaFisica.png" alt="Limpieza Física">
             </div>
             <div class="servicio-content">
-                <h2>Limpieza Física</h2>
-                <p>Eliminamos polvo y suciedad del hardware para evitar sobrecalentamientos y fallas físicas.</p>
+                <h2>Limpieza Física Profunda</h2>
+                <p>Eliminamos completamente el polvo y suciedad acumulados en tu hardware, previniendo sobrecalentamientos y fallas prematuras con herramientas profesionales y técnicas especializadas.</p>
             </div>
         </div>
 
@@ -543,8 +658,8 @@
                 <img src="images/optimizacionComputadoras.jpg" alt="Optimización de Computadoras">
             </div>
             <div class="servicio-content">
-                <h2>Optimización de Computadoras</h2>
-                <p>Mejoramos el rendimiento del sistema eliminando archivos basura y optimizando la memoria.</p>
+                <h2>Optimización Integral</h2>
+                <p>Mejoramos radicalmente el rendimiento de tu sistema mediante la eliminación de archivos basura, optimización de memoria RAM y ajuste preciso de configuraciones para máxima velocidad.</p>
             </div>
         </div>
 
@@ -553,8 +668,8 @@
                 <img src="images/office.jpg" alt="Instalación de Office">
             </div>
             <div class="servicio-content">
-                <h2>Instalación de Office</h2>
-                <p>Instalamos Microsoft Office o alternativas, configurando Word, Excel, PowerPoint y más según tus necesidades.</p>
+                <h2>Suite Office Completa</h2>
+                <p>Instalación profesional de Microsoft Office o alternativas de código abierto, incluyendo configuración personalizada de Word, Excel, PowerPoint y más según tus necesidades específicas.</p>
             </div>
         </div>
 
@@ -563,8 +678,8 @@
                 <img src="images/pastaTermica.jpg" alt="Cambio de Pasta Térmica">
             </div>
             <div class="servicio-content">
-                <h2>Cambio de Pasta Térmica</h2>
-                <p>Renovamos la pasta térmica de tu procesador para mejorar la disipación de calor y prolongar la vida útil.</p>
+                <h2>Renovación de Pasta Térmica</h2>
+                <p>Aplicación profesional de pasta térmica premium para mejorar la transferencia de calor de tu procesador, reduciendo temperaturas y prolongando significativamente la vida útil del componente.</p>
             </div>
         </div>
 
@@ -573,8 +688,8 @@
                 <img src="images/cableEthernet.jpg" alt="Cables Ethernet">
             </div>
             <div class="servicio-content">
-                <h2>Creación y Reparación de Cables Ethernet</h2>
-                <p>Fabricamos cables personalizados y reparamos conectores dañados para una red más estable.</p>
+                <h2>Cableado Ethernet Personalizado</h2>
+                <p>Fabricación de cables Ethernet a medida con conectores de alta calidad y reparación profesional de cables dañados para garantizar una conexión de red estable y de máximo rendimiento.</p>
             </div>
         </div>
 
@@ -583,8 +698,8 @@
                 <img src="images/antivirus.jpg" alt="Instalación de Antivirus">
             </div>
             <div class="servicio-content">
-                <h2>Instalación de Antivirus</h2>
-                <p>Protegemos tu equipo contra virus, malware y amenazas en línea con herramientas de seguridad confiables.</p>
+                <h2>Protección Antivirus Avanzada</h2>
+                <p>Instalación y configuración de soluciones antivirus líderes en el mercado, incluyendo protección en tiempo real, escaneo profundo y herramientas anti-malware para seguridad integral.</p>
             </div>
         </div>
 
@@ -593,8 +708,8 @@
                 <img src="images/paginasWeb.jpg" alt="Páginas Web">
             </div>
             <div class="servicio-content">
-                <h2>Creación de Páginas Web</h2>
-                <p>Diseñamos páginas web estáticas personalizadas según tu estilo, ideales para negocios o portafolios personales.</p>
+                <h2>Desarrollo Web Profesional</h2>
+                <p>Diseño y desarrollo de páginas web estáticas completamente personalizadas, optimizadas para SEO y adaptadas a tu marca, ideales para negocios, portafolios o presencia en línea.</p>
             </div>
         </div>
 
@@ -603,29 +718,49 @@
                 <img src="images/respaldo.jpg" alt="Respaldo de Información">
             </div>
             <div class="servicio-content">
-                <h2>Respaldos de Memoria y Almacenamiento</h2>
-                <p>Realizamos copias de seguridad de tus archivos importantes en discos duros, memorias USB o la nube.</p>
+                <h2>Respaldos Seguros</h2>
+                <p>Implementación de estrategias completas de respaldo para proteger tu información valiosa en discos duros externos, memorias USB o servicios en la nube con cifrado opcional.</p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>Contacto: <a href="mailto:sebastianaboytes199@gmail.com">sebastianaboytes199@gmail.com</a> | Tel: 5522516729</p>
-        <p>&copy; 2025 SAU. Todos los derechos reservados.</p>
+        <div class="footer-content">
+            <img src="images/logo (2).png" alt="SAU Logo" class="footer-logo">
+            <p>Expertos en soluciones tecnológicas personalizadas</p>
+            <p>Contacto: <a href="mailto:sebastianaboytes199@gmail.com">sebastianaboytes199@gmail.com</a></p>
+            <p>Teléfono: <a href="tel:5522516729">5522516729</a></p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 SAU. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
         // Efecto de partículas premium mejorado
         document.addEventListener('DOMContentLoaded', function() {
             const particlesContainer = document.getElementById('particles-js');
-            const particleCount = window.innerWidth < 768 ? 20 : 40;
+            const particleCount = window.innerWidth < 768 ? 25 : 50;
+            
+            // Colores para partículas
+            const colors = [
+                'rgba(255, 215, 0, 0.8)',
+                'rgba(255, 215, 0, 0.6)',
+                'rgba(255, 215, 0, 0.4)',
+                'rgba(255, 255, 255, 0.3)',
+                'rgba(26, 58, 143, 0.3)'
+            ];
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Tamaño aleatorio entre 3px y 8px
-                const size = Math.random() * 5 + 3;
+                // Tamaño aleatorio entre 3px y 10px
+                const size = Math.random() * 7 + 3;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
@@ -633,20 +768,56 @@
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
                 
+                // Color aleatorio
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
                 // Opacidad aleatoria
-                particle.style.opacity = Math.random() * 0.6 + 0.2;
+                particle.style.opacity = Math.random() * 0.7 + 0.3;
                 
                 // Animación única para cada partícula
-                const duration = Math.random() * 25 + 15;
-                const delay = Math.random() * 10;
-                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 15;
+                const xMovement = (Math.random() - 0.5) * 20;
+                const yMovement = (Math.random() - 0.5) * 20;
+                
+                particle.style.animation = `
+                    float ${duration}s ease-in-out ${delay}s infinite,
+                    moveX ${duration * 1.5}s ease-in-out ${delay}s infinite alternate,
+                    moveY ${duration * 1.2}s ease-in-out ${delay}s infinite alternate
+                `;
                 
                 // Efecto de profundidad
-                const translateZ = Math.random() * 50;
+                const translateZ = Math.random() * 100;
                 particle.style.transform = `translateZ(${translateZ}px)`;
+                
+                // Estilos de animación dinámicos
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes moveX {
+                        0% { transform: translateX(0) translateZ(${translateZ}px); }
+                        100% { transform: translateX(${xMovement}vw) translateZ(${translateZ}px); }
+                    }
+                    @keyframes moveY {
+                        0% { transform: translateY(0) translateZ(${translateZ}px); }
+                        100% { transform: translateY(${yMovement}vh) translateZ(${translateZ}px); }
+                    }
+                `;
+                document.head.appendChild(style);
                 
                 particlesContainer.appendChild(particle);
             }
+            
+            // Efecto hover para servicios con sonido (opcional)
+            const servicios = document.querySelectorAll('.servicio');
+            servicios.forEach(servicio => {
+                servicio.addEventListener('mouseenter', () => {
+                    servicio.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                });
+                
+                servicio.addEventListener('mouseleave', () => {
+                    servicio.style.transition = 'var(--transition)';
+                });
+            });
         });
     </script>
 </body>
