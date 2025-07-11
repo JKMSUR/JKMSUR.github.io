@@ -237,7 +237,7 @@
             margin: 0 auto;
         }
 
-        /* Tarjetas de Servicio Premium - Mejoradas */
+        /* Tarjetas de Servicio Premium - Corregidas */
         .service-card {
             perspective: 1000px;
             height: 400px;
@@ -248,6 +248,7 @@
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
             display: block;
+            position: relative;
         }
 
         .service-card:hover {
@@ -332,6 +333,7 @@
             flex-grow: 1;
             display: flex;
             align-items: center;
+            padding: 0 20px;
         }
 
         .card-btn {
@@ -586,7 +588,7 @@
         
         <div class="services-grid">
             <!-- Tarjeta 1 -->
-            <a href="mc.html" class="service-card">
+            <div class="service-card">
                 <div class="card-inner">
                     <div class="card-front">
                         <i class="fas fa-laptop-code card-icon"></i>
@@ -601,10 +603,10 @@
                         <a href="mc.html" class="card-btn">Ver detalles</a>
                     </div>
                 </div>
-            </a>
+            </div>
             
             <!-- Tarjeta 2 -->
-            <a href="unas.html" class="service-card">
+            <div class="service-card">
                 <div class="card-inner">
                     <div class="card-front">
                         <i class="fas fa-hand-sparkles card-icon"></i>
@@ -619,10 +621,10 @@
                         <a href="unas.html" class="card-btn">Ver detalles</a>
                     </div>
                 </div>
-            </a>
+            </div>
             
             <!-- Tarjeta 3 -->
-            <a href="quesos.html" class="service-card">
+            <div class="service-card">
                 <div class="card-inner">
                     <div class="card-front">
                         <i class="fas fa-cheese card-icon"></i>
@@ -637,7 +639,7 @@
                         <a href="quesos.html" class="card-btn">Ver detalles</a>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
     </section>
     
@@ -678,23 +680,6 @@
                 
                 particlesContainer.appendChild(particle);
             }
-            
-            // Efecto de revelado al hacer scroll
-            const reveals = document.querySelectorAll('.reveal');
-            
-            function revealOnScroll() {
-                reveals.forEach(reveal => {
-                    const revealTop = reveal.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (revealTop < windowHeight - 100) {
-                        reveal.classList.add('active');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', revealOnScroll);
-            window.addEventListener('load', revealOnScroll);
         });
     </script>
 </body>
