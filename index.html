@@ -237,7 +237,7 @@
             margin: 0 auto;
         }
 
-        /* Tarjetas de Servicio Premium - Corregidas */
+        /* Tarjetas de Servicio Premium - Mejoradas para móviles */
         .service-card {
             perspective: 1000px;
             height: 400px;
@@ -247,13 +247,16 @@
             overflow: hidden;
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
-            display: block;
             position: relative;
+            cursor: pointer;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
+        .service-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-card:hover .card-inner {
+            transform: rotateY(180deg);
         }
 
         .card-inner {
@@ -262,10 +265,6 @@
             height: 100%;
             transition: transform 0.8s;
             transform-style: preserve-3d;
-        }
-
-        .service-card:hover .card-inner {
-            transform: rotateY(180deg);
         }
 
         .card-front, .card-back {
@@ -292,10 +291,6 @@
             color: var(--accent);
             margin-bottom: 25px;
             transition: var(--transition);
-        }
-
-        .service-card:hover .card-icon {
-            transform: scale(1.1);
         }
 
         .card-title {
@@ -353,6 +348,7 @@
             font-size: clamp(0.8rem, 1vw, 0.95rem);
             min-width: 160px;
             height: 40px;
+            pointer-events: auto;
         }
 
         .card-btn:hover {
@@ -494,10 +490,6 @@
                 transform: none;
             }
             
-            .service-card:active .card-inner {
-                transform: rotateY(180deg);
-            }
-            
             .whatsapp {
                 width: 50px;
                 height: 50px;
@@ -567,6 +559,11 @@
 <body>
     <!-- Efecto de partículas -->
     <div class="particles" id="particles-js"></div>
+    
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/5215522516729" class="whatsapp" target="_blank" title="¡Chatea con nosotros!">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -583,7 +580,7 @@
         
         <div class="services-grid">
             <!-- Tarjeta 1 -->
-            <div class="service-card">
+            <div class="service-card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
                         <i class="fas fa-laptop-code card-icon"></i>
@@ -601,7 +598,7 @@
             </div>
             
             <!-- Tarjeta 2 -->
-            <div class="service-card">
+            <div class="service-card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
                         <i class="fas fa-hand-sparkles card-icon"></i>
@@ -619,7 +616,7 @@
             </div>
             
             <!-- Tarjeta 3 -->
-            <div class="service-card">
+            <div class="service-card" onclick="flipCard(this)">
                 <div class="card-inner">
                     <div class="card-front">
                         <i class="fas fa-cheese card-icon"></i>
@@ -675,7 +672,23 @@
                 
                 particlesContainer.appendChild(particle);
             }
+
+            // Resetear tarjetas al hacer scroll
+            window.addEventListener('scroll', function() {
+                const cards = document.querySelectorAll('.service-card');
+                cards.forEach(card => {
+                    card.classList.remove('flipped');
+                });
+            });
         });
+
+        // Función para voltear tarjetas
+        function flipCard(card) {
+            // Si es móvil, volteamos con un click
+            if (window.innerWidth <= 768) {
+                card.classList.toggle('flipped');
+            }
+        }
     </script>
 </body>
 </html>
