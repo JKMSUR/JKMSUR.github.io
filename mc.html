@@ -212,7 +212,7 @@
             margin-bottom: 0;
         }
 
-        /* Footer Premium */
+        /* Footer Premium con Empleado del Mes */
         footer {
             background: var(--dark);
             text-align: center;
@@ -234,10 +234,31 @@
         }
 
         .footer-content {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .footer-info {
+                order: 1;
+            }
+            
+            .empleado-del-mes-container {
+                order: 2;
+                display: flex;
+                justify-content: flex-end;
+            }
         }
 
         .footer-logo {
@@ -287,6 +308,12 @@
             margin-top: 30px;
         }
 
+        @media (min-width: 992px) {
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+
         .social-link {
             width: 45px;
             height: 45px;
@@ -306,43 +333,49 @@
             transform: translateY(-5px);
         }
 
-        /* Elementos Especiales Premium */
+        /* Empleado del Mes en Footer */
+        .empleado-del-mes-container {
+            margin-top: 40px;
+        }
+
         .empleado-del-mes {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            z-index: 1000;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0 15px 35px rgba(255, 192, 0, 0.4);
             border: 4px solid white;
-            max-width: 220px;
+            max-width: 280px;
             text-align: center;
             transition: var(--transition);
-            animation: float 6s ease-in-out infinite;
+            margin: 0 auto;
             transform-style: preserve-3d;
             backdrop-filter: blur(5px);
             cursor: pointer;
         }
 
-        .empleado-del-mes::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            z-index: -1;
-            opacity: 0.5;
-            filter: blur(15px);
-            animation: pulseGlow 4s ease-in-out infinite;
+        @media (min-width: 768px) {
+            .empleado-del-mes {
+                animation: float 6s ease-in-out infinite;
+            }
+            
+            .empleado-del-mes::before {
+                content: '';
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                border-radius: 30px;
+                background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+                z-index: -1;
+                opacity: 0.5;
+                filter: blur(15px);
+                animation: pulseGlow 4s ease-in-out infinite;
+            }
         }
 
         .empleado-del-mes:hover {
-            transform: scale(1.15) rotate(5deg);
+            transform: scale(1.05);
             box-shadow: 0 20px 45px rgba(255, 192, 0, 0.6);
         }
 
@@ -354,12 +387,11 @@
             margin: 0 auto 15px;
             border: 4px solid white;
             box-shadow: var(--shadow-md);
-            transform: translateZ(20px);
             transition: var(--transition);
         }
 
         .empleado-del-mes:hover img {
-            transform: translateZ(20px) scale(1.05);
+            transform: scale(1.05);
         }
 
         .empleado-del-mes p {
@@ -368,51 +400,60 @@
             color: var(--dark);
             font-size: clamp(1.1rem, 1.3vw, 1.4rem);
             text-shadow: 0 2px 3px rgba(255,255,255,0.5);
-            transform: translateZ(10px);
         }
 
+        /* Botón de WhatsApp */
         .whatsapp {
             position: fixed;
-            bottom: 40px;
-            right: 40px;
+            bottom: 30px;
+            right: 30px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            font-size: 45px;
-            width: 85px;
-            height: 85px;
+            font-size: 24px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
             text-decoration: none;
             z-index: 1000;
             transition: var(--transition);
             animation: pulse 2s infinite;
-            transform-style: preserve-3d;
         }
 
-        .whatsapp::before {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            z-index: -1;
-            opacity: 0.6;
-            filter: blur(10px);
-            animation: pulse 2s ease-in-out infinite;
+        @media (min-width: 768px) {
+            .whatsapp {
+                font-size: 30px;
+                width: 70px;
+                height: 70px;
+                bottom: 40px;
+                right: 40px;
+            }
+            
+            .whatsapp::before {
+                content: '';
+                position: absolute;
+                top: -5px;
+                left: -5px;
+                right: -5px;
+                bottom: -5px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #25D366, #128C7E);
+                z-index: -1;
+                opacity: 0.6;
+                filter: blur(10px);
+                animation: pulse 2s ease-in-out infinite;
+            }
         }
 
         .whatsapp:hover {
-            transform: scale(1.15) rotate(10deg);
-            box-shadow: 0 20px 45px rgba(37, 211, 102, 0.7);
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
         }
 
-        /* Efecto de Partículas Premium */
+        /* Efecto de Partículas */
         .particles {
             position: fixed;
             top: 0;
@@ -435,7 +476,7 @@
 
         /* Scrollbar personalizada */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
 
         ::-webkit-scrollbar-track {
@@ -444,14 +485,14 @@
 
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(var(--accent), var(--accent-dark));
-            border-radius: 5px;
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent-dark);
         }
 
-        /* Animaciones Premium */
+        /* Animaciones */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -482,7 +523,7 @@
 
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
@@ -514,20 +555,6 @@
             .servicio-img-container {
                 height: 240px;
             }
-            
-            .empleado-del-mes {
-                top: 30px;
-                right: 30px;
-                max-width: 200px;
-            }
-            
-            .whatsapp {
-                width: 75px;
-                height: 75px;
-                font-size: 40px;
-                bottom: 30px;
-                right: 30px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -555,15 +582,6 @@
                 padding: 80px 20px 40px;
                 clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
             }
-            
-            .empleado-del-mes {
-                max-width: 180px;
-                padding: 18px;
-            }
-            
-            .empleado-del-mes img {
-                margin-bottom: 12px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -585,17 +603,10 @@
                 transform: translateY(-10px) scale(1.02);
             }
             
-            .empleado-del-mes {
-                top: 20px;
-                right: 20px;
-                max-width: 160px;
-                padding: 15px;
-            }
-            
             .whatsapp {
-                width: 65px;
-                height: 65px;
-                font-size: 35px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
                 bottom: 20px;
                 right: 20px;
             }
@@ -609,30 +620,15 @@
             .header-subtitle {
                 font-size: 1rem;
             }
-            
-            .empleado-del-mes {
-                max-width: 140px;
-                padding: 12px;
-            }
-            
-            .empleado-del-mes p {
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Efecto de Partículas Premium -->
+    <!-- Efecto de Partículas -->
     <div class="particles" id="particles-js"></div>
     
-    <!-- Anuncio de Bowie como Empleado del Mes -->
-    <div class="empleado-del-mes">
-        <img src="bowie.png" alt="Bowie">
-        <p>Empleado del Mes 🏆</p>
-    </div>
-    
-    <!-- Botón de WhatsApp Premium -->
+    <!-- Botón de WhatsApp Responsive -->
     <a href="https://wa.me/5215522516729" class="whatsapp" target="_blank" title="¡Chatea con nosotros!">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -726,25 +722,34 @@
 
     <footer>
         <div class="footer-content">
-            <img src="images/logo (2).png" alt="SAU Logo" class="footer-logo">
-            <p>Expertos en soluciones tecnológicas personalizadas</p>
-            <p>Contacto: <a href="mailto:sebastianaboytes199@gmail.com">sebastianaboytes199@gmail.com</a></p>
-            <p>Teléfono: <a href="tel:5522516729">5522516729</a></p>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <div class="footer-info">
+                <img src="images/logo (2).png" alt="SAU Logo" class="footer-logo">
+                <p>Expertos en soluciones tecnológicas personalizadas</p>
+                <p>Contacto: <a href="mailto:sebastianaboytes199@gmail.com">sebastianaboytes199@gmail.com</a></p>
+                <p>Teléfono: <a href="tel:5522516729">5522516729</a></p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>&copy; 2025 SAU. Todos los derechos reservados.</p>
             </div>
-            <p>&copy; 2025 SAU. Todos los derechos reservados.</p>
+            
+            <div class="empleado-del-mes-container">
+                <div class="empleado-del-mes">
+                    <img src="bowie.png" alt="Bowie">
+                    <p>Empleado del Mes 🏆</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Efecto de partículas premium mejorado
+        // Efecto de partículas mejorado
         document.addEventListener('DOMContentLoaded', function() {
             const particlesContainer = document.getElementById('particles-js');
-            const particleCount = window.innerWidth < 768 ? 25 : 50;
+            const particleCount = window.innerWidth < 768 ? 20 : 40;
             
             // Colores para partículas
             const colors = [
@@ -759,8 +764,8 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Tamaño aleatorio entre 3px y 10px
-                const size = Math.random() * 7 + 3;
+                // Tamaño aleatorio entre 3px y 8px
+                const size = Math.random() * 5 + 3;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
@@ -772,52 +777,15 @@
                 particle.style.background = colors[Math.floor(Math.random() * colors.length)];
                 
                 // Opacidad aleatoria
-                particle.style.opacity = Math.random() * 0.7 + 0.3;
+                particle.style.opacity = Math.random() * 0.6 + 0.2;
                 
                 // Animación única para cada partícula
-                const duration = Math.random() * 30 + 20;
-                const delay = Math.random() * 15;
-                const xMovement = (Math.random() - 0.5) * 20;
-                const yMovement = (Math.random() - 0.5) * 20;
-                
-                particle.style.animation = `
-                    float ${duration}s ease-in-out ${delay}s infinite,
-                    moveX ${duration * 1.5}s ease-in-out ${delay}s infinite alternate,
-                    moveY ${duration * 1.2}s ease-in-out ${delay}s infinite alternate
-                `;
-                
-                // Efecto de profundidad
-                const translateZ = Math.random() * 100;
-                particle.style.transform = `translateZ(${translateZ}px)`;
-                
-                // Estilos de animación dinámicos
-                const style = document.createElement('style');
-                style.textContent = `
-                    @keyframes moveX {
-                        0% { transform: translateX(0) translateZ(${translateZ}px); }
-                        100% { transform: translateX(${xMovement}vw) translateZ(${translateZ}px); }
-                    }
-                    @keyframes moveY {
-                        0% { transform: translateY(0) translateZ(${translateZ}px); }
-                        100% { transform: translateY(${yMovement}vh) translateZ(${translateZ}px); }
-                    }
-                `;
-                document.head.appendChild(style);
+                const duration = Math.random() * 25 + 15;
+                const delay = Math.random() * 10;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
                 
                 particlesContainer.appendChild(particle);
             }
-            
-            // Efecto hover para servicios con sonido (opcional)
-            const servicios = document.querySelectorAll('.servicio');
-            servicios.forEach(servicio => {
-                servicio.addEventListener('mouseenter', () => {
-                    servicio.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-                });
-                
-                servicio.addEventListener('mouseleave', () => {
-                    servicio.style.transition = 'var(--transition)';
-                });
-            });
         });
     </script>
 </body>
