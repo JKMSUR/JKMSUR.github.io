@@ -60,6 +60,22 @@
             pointer-events: none;
             filter: blur(1px);
             will-change: transform;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(5vw, 5vh);
+            }
+            50% {
+                transform: translate(10vw, -5vh);
+            }
+            75% {
+                transform: translate(-5vw, 10vh);
+            }
         }
 
         /* Hero Section Premium */
@@ -107,6 +123,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            padding: 20px;
         }
 
         .logo {
@@ -142,9 +159,11 @@
             animation: fadeInUp 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
 
-        /* Botones Premium */
+        /* Botones Premium - Corregidos */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 15px 35px;
             background: transparent;
             color: var(--accent);
@@ -160,6 +179,8 @@
             font-size: clamp(0.9rem, 1.1vw, 1.1rem);
             border-radius: 50px;
             animation: fadeInUp 1s 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            min-width: 220px;
+            height: 50px;
         }
 
         .btn::before {
@@ -216,7 +237,7 @@
             margin: 0 auto;
         }
 
-        /* Tarjetas de Servicio Premium */
+        /* Tarjetas de Servicio Premium - Mejoradas */
         .service-card {
             perspective: 1000px;
             height: 400px;
@@ -226,6 +247,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
+            display: block;
         }
 
         .service-card:hover {
@@ -255,7 +277,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px;
+            padding: 30px;
             border-radius: 20px;
         }
 
@@ -288,6 +310,7 @@
             color: rgba(255,255,255,0.8);
             text-align: center;
             font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            margin-bottom: 15px;
         }
 
         .card-back {
@@ -298,6 +321,7 @@
 
         .card-back .card-title {
             color: var(--dark);
+            margin-bottom: 20px;
         }
 
         .card-desc {
@@ -305,10 +329,15 @@
             text-align: center;
             font-weight: 500;
             font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
         }
 
         .card-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 12px 30px;
             background: var(--dark);
             color: var(--accent);
@@ -320,6 +349,8 @@
             border-radius: 50px;
             transition: var(--transition);
             font-size: clamp(0.8rem, 1vw, 0.95rem);
+            min-width: 160px;
+            height: 40px;
         }
 
         .card-btn:hover {
@@ -420,7 +451,7 @@
             100% { opacity: 0.8; }
         }
 
-        /* Responsive Design */
+        /* Responsive Design - Mejorado */
         @media (max-width: 1200px) {
             .services-grid {
                 gap: 30px;
@@ -434,6 +465,11 @@
             
             .service-card {
                 height: 380px;
+            }
+            
+            .btn {
+                min-width: 200px;
+                height: 45px;
             }
         }
 
@@ -467,6 +503,12 @@
                 bottom: 20px;
                 right: 20px;
             }
+            
+            .btn {
+                min-width: 180px;
+                height: 45px;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -485,6 +527,8 @@
             .btn {
                 padding: 12px 25px;
                 font-size: 0.9rem;
+                min-width: 160px;
+                height: 40px;
             }
             
             .service-card {
@@ -492,7 +536,12 @@
             }
             
             .card-front, .card-back {
-                padding: 30px;
+                padding: 25px;
+            }
+            
+            .card-btn {
+                min-width: 140px;
+                height: 38px;
             }
         }
 
@@ -503,6 +552,12 @@
             
             .section-title {
                 font-size: 1.8rem;
+            }
+            
+            .btn {
+                min-width: 140px;
+                height: 38px;
+                padding: 10px 20px;
             }
         }
     </style>
