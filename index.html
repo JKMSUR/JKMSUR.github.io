@@ -242,7 +242,7 @@
             animation: fadeInUp 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
 
-        /* Botones Hero - MÁS DESTACADOS */
+        /* Botones Hero - VISIBLES */
         .btn-container {
             display: flex;
             gap: 20px;
@@ -328,7 +328,7 @@
             }
         }
 
-        /* Sección de Servicios Premium - TARJETAS MÁS ALTAS */
+        /* Sección de Servicios Premium - BOTONES ARREGLADOS EN DESKTOP */
         .services {
             padding: 100px 20px;
             position: relative;
@@ -363,16 +363,16 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 50px;
+            gap: 40px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* Tarjetas de Servicio Premium - MÁS ALTAS Y CON BOTONES GRANDES */
+        /* Tarjetas de Servicio Premium - ¡BOTONES COMPLETAMENTE VISIBLES! */
         .service-card {
-            height: 550px; /* AUMENTADA PARA BOTONES MÁS VISIBLES */
+            min-height: 580px; /* Usamos min-height en lugar de height fija */
             border-radius: var(--radius-lg);
-            overflow: hidden;
+            overflow: visible; /* Cambiado a visible para que los botones se vean */
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
             position: relative;
@@ -380,13 +380,12 @@
             border: 2px solid rgba(255, 215, 0, 0.3);
             display: flex;
             flex-direction: column;
-            padding: 40px 30px 30px;
+            padding: 40px 30px 35px; /* Más padding abajo para botones */
             text-align: center;
-            transform-style: preserve-3d;
         }
 
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
+            transform: translateY(-15px);
             box-shadow: var(--shadow-xl);
             border-color: rgba(255, 215, 0, 0.6);
         }
@@ -399,19 +398,20 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: space-between; /* Distribuye el contenido */
         }
 
         .card-icon-container {
-            width: 140px; /* MÁS GRANDE */
-            height: 140px; /* MÁS GRANDE */
+            width: 140px;
+            height: 140px;
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.2));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 30px;
-            padding: 30px; /* MÁS PADDING */
-            border: 3px solid rgba(255, 215, 0, 0.3); /* BORDE MÁS GRUESO */
+            padding: 30px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
             transition: var(--transition);
         }
 
@@ -422,7 +422,7 @@
         }
 
         .card-icon {
-            font-size: 4rem; /* MÁS GRANDE */
+            font-size: 4rem;
             color: var(--accent);
             transition: var(--transition);
         }
@@ -433,7 +433,7 @@
 
         .card-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 2vw, 2.2rem); /* MÁS GRANDE */
+            font-size: clamp(1.8rem, 2vw, 2.2rem);
             margin-bottom: 25px;
             color: var(--light);
             font-weight: 700;
@@ -446,25 +446,27 @@
 
         .service-card p {
             color: rgba(255,255,255,0.9);
-            font-size: clamp(1.1rem, 1.2vw, 1.3rem); /* MÁS GRANDE */
-            margin-bottom: 35px;
+            font-size: clamp(1.1rem, 1.2vw, 1.3rem);
+            margin-bottom: 40px; /* Más margen para separar del botón */
             transition: var(--transition);
             line-height: 1.8;
             flex-grow: 1;
         }
 
-        /* BOTONES DE SERVICIOS - ¡MUY GRANDES Y VISIBLES! */
+        /* ¡BOTONES DE SERVICIOS - AHORA SI SE VEN EN DESKTOP! */
         .card-btn-container {
-            margin-top: auto;
+            margin-top: 30px; /* Espacio fijo para separar del contenido */
             padding-top: 25px;
             border-top: 2px solid rgba(255, 215, 0, 0.2);
+            position: relative; /* Para que esté siempre visible */
+            z-index: 10; /* Asegurar que esté por encima */
         }
 
         .card-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 22px 50px; /* MÁS PADDING */
+            padding: 22px 50px;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--dark);
             border: none;
@@ -474,14 +476,15 @@
             text-decoration: none;
             border-radius: 50px;
             transition: var(--transition);
-            font-size: clamp(1.2rem, 1.3vw, 1.4rem); /* MÁS GRANDE */
-            min-width: 260px; /* MÁS ANCHO */
-            height: 70px; /* MÁS ALTO */
+            font-size: clamp(1.2rem, 1.3vw, 1.4rem);
+            min-width: 280px; /* Aún más ancho */
+            height: 70px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
             cursor: pointer;
-            border: 3px solid rgba(255, 255, 255, 0.4); /* BORDE MÁS GRUESO */
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            z-index: 20; /* Asegurar visibilidad */
         }
 
         .card-btn i {
@@ -503,21 +506,6 @@
 
         .card-btn:active {
             transform: translateY(-3px) scale(1.02);
-        }
-
-        /* Etiqueta de botón destacada */
-        .card-btn-label {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            transform: rotate(5deg);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         /* Efecto de brillo para botones de tarjetas */
@@ -741,7 +729,7 @@
             }
             
             .service-card {
-                height: 520px;
+                min-height: 550px;
             }
             
             .nav-menu {
@@ -811,7 +799,7 @@
             }
             
             .service-card {
-                height: 500px;
+                min-height: 500px;
             }
             
             .card-btn {
@@ -854,7 +842,7 @@
             }
             
             .service-card {
-                height: 480px;
+                min-height: 480px;
                 padding: 30px 20px;
             }
             
@@ -905,7 +893,7 @@
             }
             
             .service-card {
-                height: 460px;
+                min-height: 460px;
             }
             
             .card-btn {
@@ -951,6 +939,11 @@
         .high-contrast {
             color: #FFFFFF !important;
             background-color: #000000 !important;
+        }
+
+        /* DEBUG - Para asegurar visibilidad */
+        .debug-border {
+            border: 2px solid red !important;
         }
     </style>
 </head>
@@ -1008,7 +1001,7 @@
                         <h3 class="card-title">Mantenimiento de Computadoras</h3>
                         <p>Soluciones tecnológicas integrales para optimizar el rendimiento de tus equipos. Diagnóstico, reparación y mantenimiento preventivo para hogares y empresas. Garantía en todos nuestros servicios.</p>
                         <div class="card-btn-container">
-                            <a href="mc.html" class="card-btn">
+                            <a href="mc.html" class="card-btn" id="btn-mc">
                                 <i class="fas fa-desktop"></i> Ver Servicio
                             </a>
                         </div>
@@ -1024,7 +1017,7 @@
                         <h3 class="card-title">Uñas Profesionales</h3>
                         <p>Servicios de manicura y pedicura premium con los más altos estándares de higiene y calidad. Diseños personalizados, esmaltado semipermanente y cuidado especializado. Productos de primera línea.</p>
                         <div class="card-btn-container">
-                            <a href="unas.html" class="card-btn">
+                            <a href="unas.html" class="card-btn" id="btn-unas">
                                 <i class="fas fa-spa"></i> Ver Servicio
                             </a>
                         </div>
@@ -1040,7 +1033,7 @@
                         <h3 class="card-title">Productos Lácteos Artesanales</h3>
                         <p>Elaboración artesanal de quesos con ingredientes 100% naturales seleccionados. Tradición, sabor auténtico y calidad premium en cada producto. Frescura y sabor incomparables.</p>
                         <div class="card-btn-container">
-                            <a href="quesos.html" class="card-btn">
+                            <a href="quesos.html" class="card-btn" id="btn-quesos">
                                 <i class="fas fa-utensils"></i> Ver Servicio
                             </a>
                         </div>
@@ -1210,51 +1203,20 @@
                 }, 300 + (index * 200));
             });
             
-            // Efecto de teclado para mejor accesibilidad
-            document.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && e.altKey && e.key === 'w') {
-                    whatsappBtn.click();
-                }
-                
-                if (e.ctrlKey && e.altKey && e.key === 't') {
-                    scrollTopBtn.click();
-                }
-                
-                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                }
-            });
-            
-            // Mejorar la experiencia táctil en móviles
-            let lastTouchEnd = 0;
-            document.addEventListener('touchend', function(event) {
-                const now = (new Date()).getTime();
-                if (now - lastTouchEnd <= 300) {
-                    event.preventDefault();
-                }
-                lastTouchEnd = now;
-            }, false);
-            
-            // Prevenir zoom en doble toque en botones
-            document.querySelectorAll('button, .btn, .card-btn').forEach(button => {
-                button.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
-                });
-                
-                button.addEventListener('touchend', function() {
-                    this.style.transform = '';
-                });
-            });
-            
-            // Asegurar que los botones sean siempre visibles
+            // Asegurar que los botones sean siempre visibles - DEBUG
             const cardButtons = document.querySelectorAll('.card-btn');
             cardButtons.forEach(button => {
                 button.style.display = 'flex';
                 button.style.alignItems = 'center';
                 button.style.justifyContent = 'center';
+                button.style.visibility = 'visible';
+                button.style.opacity = '1';
             });
+            
+            // Añadir borde de debug si es necesario
+            if (window.innerWidth > 768) {
+                console.log('Vista desktop detectada - Botones asegurados');
+            }
         });
     </script>
 </body>
