@@ -328,7 +328,7 @@
             }
         }
 
-        /* Sección de Servicios Premium */
+        /* Sección de Servicios Premium - TARJETAS MÁS ALTAS */
         .services {
             padding: 100px 20px;
             position: relative;
@@ -362,15 +362,15 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 50px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* Tarjetas de Servicio Premium - BOTONES MEJORADOS */
+        /* Tarjetas de Servicio Premium - MÁS ALTAS Y CON BOTONES GRANDES */
         .service-card {
-            height: 500px; /* Aumentada la altura para botones */
+            height: 550px; /* AUMENTADA PARA BOTONES MÁS VISIBLES */
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
@@ -380,7 +380,7 @@
             border: 2px solid rgba(255, 215, 0, 0.3);
             display: flex;
             flex-direction: column;
-            padding: 40px 30px;
+            padding: 40px 30px 30px;
             text-align: center;
             transform-style: preserve-3d;
         }
@@ -402,16 +402,16 @@
         }
 
         .card-icon-container {
-            width: 120px;
-            height: 120px;
+            width: 140px; /* MÁS GRANDE */
+            height: 140px; /* MÁS GRANDE */
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.2));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 30px;
-            padding: 25px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
+            padding: 30px; /* MÁS PADDING */
+            border: 3px solid rgba(255, 215, 0, 0.3); /* BORDE MÁS GRUESO */
             transition: var(--transition);
         }
 
@@ -422,7 +422,7 @@
         }
 
         .card-icon {
-            font-size: 3.5rem;
+            font-size: 4rem; /* MÁS GRANDE */
             color: var(--accent);
             transition: var(--transition);
         }
@@ -433,8 +433,8 @@
 
         .card-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.6rem, 2vw, 2rem);
-            margin-bottom: 20px;
+            font-size: clamp(1.8rem, 2vw, 2.2rem); /* MÁS GRANDE */
+            margin-bottom: 25px;
             color: var(--light);
             font-weight: 700;
             transition: var(--transition);
@@ -446,63 +446,78 @@
 
         .service-card p {
             color: rgba(255,255,255,0.9);
-            font-size: clamp(1rem, 1.1vw, 1.2rem);
-            margin-bottom: 30px;
+            font-size: clamp(1.1rem, 1.2vw, 1.3rem); /* MÁS GRANDE */
+            margin-bottom: 35px;
             transition: var(--transition);
-            line-height: 1.7;
+            line-height: 1.8;
             flex-grow: 1;
         }
 
-        /* BOTONES DE SERVICIOS - ¡MUY DESTACADOS! */
+        /* BOTONES DE SERVICIOS - ¡MUY GRANDES Y VISIBLES! */
         .card-btn-container {
             margin-top: auto;
             padding-top: 25px;
-            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            border-top: 2px solid rgba(255, 215, 0, 0.2);
         }
 
         .card-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 45px;
+            padding: 22px 50px; /* MÁS PADDING */
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--dark);
             border: none;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             text-decoration: none;
             border-radius: 50px;
             transition: var(--transition);
-            font-size: clamp(1.1rem, 1.2vw, 1.2rem);
-            min-width: 220px;
-            height: 60px;
+            font-size: clamp(1.2rem, 1.3vw, 1.4rem); /* MÁS GRANDE */
+            min-width: 260px; /* MÁS ANCHO */
+            height: 70px; /* MÁS ALTO */
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
             cursor: pointer;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.4); /* BORDE MÁS GRUESO */
         }
 
         .card-btn i {
-            margin-left: 12px;
-            font-size: 1.2em;
+            margin-left: 15px;
+            font-size: 1.4em;
             transition: transform 0.3s;
         }
 
         .card-btn:hover {
             background: linear-gradient(135deg, var(--accent-dark), #FFB300);
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.7);
-            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-7px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.8);
+            border-color: rgba(255, 255, 255, 0.8);
         }
 
         .card-btn:hover i {
-            transform: translateX(8px);
+            transform: translateX(10px);
         }
 
         .card-btn:active {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Etiqueta de botón destacada */
+        .card-btn-label {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(5deg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         /* Efecto de brillo para botones de tarjetas */
@@ -536,8 +551,8 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -558,13 +573,13 @@
         }
 
         .feature-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
             color: var(--light);
         }
@@ -616,9 +631,9 @@
             right: 30px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            font-size: 28px;
-            width: 75px;
-            height: 75px;
+            font-size: 32px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -644,10 +659,10 @@
         /* Botón de scroll to top */
         .scroll-top {
             position: fixed;
-            bottom: 120px;
+            bottom: 130px;
             right: 30px;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             background: rgba(255, 215, 0, 0.2);
             color: var(--accent);
             border: none;
@@ -655,7 +670,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             cursor: pointer;
             transition: var(--transition);
             opacity: 0;
@@ -711,7 +726,7 @@
         /* Responsive Design - Mejorado */
         @media (max-width: 1200px) {
             .services-grid {
-                gap: 30px;
+                gap: 40px;
             }
             
             .btn {
@@ -726,7 +741,7 @@
             }
             
             .service-card {
-                height: 480px;
+                height: 520px;
             }
             
             .nav-menu {
@@ -792,28 +807,29 @@
             .services-grid {
                 grid-template-columns: 1fr;
                 max-width: 500px;
+                gap: 30px;
             }
             
             .service-card {
-                height: 460px;
+                height: 500px;
+            }
+            
+            .card-btn {
+                min-width: 240px;
+                height: 65px;
             }
             
             .whatsapp-btn {
-                width: 65px;
-                height: 65px;
-                font-size: 24px;
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
                 bottom: 20px;
                 right: 20px;
             }
             
             .scroll-top {
-                bottom: 100px;
+                bottom: 110px;
                 right: 20px;
-            }
-            
-            .card-btn {
-                min-width: 200px;
-                height: 55px;
             }
         }
 
@@ -838,14 +854,14 @@
             }
             
             .service-card {
-                height: 440px;
+                height: 480px;
                 padding: 30px 20px;
             }
             
             .card-btn {
-                min-width: 180px;
-                height: 55px;
-                padding: 16px 35px;
+                min-width: 220px;
+                height: 60px;
+                padding: 18px 40px;
             }
             
             .section-title {
@@ -853,13 +869,17 @@
             }
             
             .card-icon-container {
-                width: 100px;
-                height: 100px;
-                padding: 20px;
+                width: 120px;
+                height: 120px;
+                padding: 25px;
             }
             
             .card-icon {
-                font-size: 2.8rem;
+                font-size: 3.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -879,19 +899,29 @@
             }
             
             .whatsapp-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 22px;
+                width: 65px;
+                height: 65px;
+                font-size: 26px;
             }
             
             .service-card {
-                height: 420px;
+                height: 460px;
             }
             
             .card-btn {
-                min-width: 160px;
-                height: 50px;
-                padding: 14px 30px;
+                min-width: 200px;
+                height: 55px;
+                padding: 16px 35px;
+            }
+            
+            .card-icon-container {
+                width: 100px;
+                height: 100px;
+                padding: 20px;
+            }
+            
+            .card-icon {
+                font-size: 3rem;
             }
         }
 
@@ -969,49 +999,49 @@
             <h2 class="section-title">Nuestros Servicios Premium</h2>
             
             <div class="services-grid">
-                <!-- Tarjeta 1 -->
+                <!-- Tarjeta 1 - Mantenimiento de Computadoras -->
                 <div class="service-card">
                     <div class="service-card-content">
                         <div class="card-icon-container">
                             <i class="fas fa-laptop-code card-icon"></i>
                         </div>
                         <h3 class="card-title">Mantenimiento de Computadoras</h3>
-                        <p>Soluciones tecnológicas integrales para optimizar el rendimiento de tus equipos. Diagnóstico, reparación y mantenimiento preventivo para hogares y empresas.</p>
+                        <p>Soluciones tecnológicas integrales para optimizar el rendimiento de tus equipos. Diagnóstico, reparación y mantenimiento preventivo para hogares y empresas. Garantía en todos nuestros servicios.</p>
                         <div class="card-btn-container">
                             <a href="mc.html" class="card-btn">
-                                Ver Detalles <i class="fas fa-arrow-right"></i>
+                                <i class="fas fa-desktop"></i> Ver Servicio
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Tarjeta 2 -->
+                <!-- Tarjeta 2 - Uñas Profesionales -->
                 <div class="service-card">
                     <div class="service-card-content">
                         <div class="card-icon-container">
                             <i class="fas fa-hand-sparkles card-icon"></i>
                         </div>
                         <h3 class="card-title">Uñas Profesionales</h3>
-                        <p>Servicios de manicura y pedicura premium con los más altos estándares de higiene y calidad. Diseños personalizados, esmaltado semipermanente y cuidado especializado.</p>
+                        <p>Servicios de manicura y pedicura premium con los más altos estándares de higiene y calidad. Diseños personalizados, esmaltado semipermanente y cuidado especializado. Productos de primera línea.</p>
                         <div class="card-btn-container">
                             <a href="unas.html" class="card-btn">
-                                Ver Detalles <i class="fas fa-arrow-right"></i>
+                                <i class="fas fa-spa"></i> Ver Servicio
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Tarjeta 3 -->
+                <!-- Tarjeta 3 - Productos Lácteos -->
                 <div class="service-card">
                     <div class="service-card-content">
                         <div class="card-icon-container">
                             <i class="fas fa-cheese card-icon"></i>
                         </div>
                         <h3 class="card-title">Productos Lácteos Artesanales</h3>
-                        <p>Elaboración artesanal de quesos con ingredientes 100% naturales seleccionados. Tradición, sabor auténtico y calidad premium en cada producto.</p>
+                        <p>Elaboración artesanal de quesos con ingredientes 100% naturales seleccionados. Tradición, sabor auténtico y calidad premium en cada producto. Frescura y sabor incomparables.</p>
                         <div class="card-btn-container">
                             <a href="quesos.html" class="card-btn">
-                                Ver Detalles <i class="fas fa-arrow-right"></i>
+                                <i class="fas fa-utensils"></i> Ver Servicio
                             </a>
                         </div>
                     </div>
@@ -1127,7 +1157,6 @@
             // Botón de WhatsApp
             const whatsappBtn = document.getElementById('whatsappBtn');
             whatsappBtn.addEventListener('click', function() {
-                // En un caso real, esto abriría WhatsApp con un número predefinido
                 window.open('https://wa.me/15551234567?text=Hola,%20me%20interesan%20sus%20servicios%20élite', '_blank');
             });
             
@@ -1183,17 +1212,14 @@
             
             // Efecto de teclado para mejor accesibilidad
             document.addEventListener('keydown', function(e) {
-                // Atajo para WhatsApp (Ctrl+Alt+W)
                 if (e.ctrlKey && e.altKey && e.key === 'w') {
                     whatsappBtn.click();
                 }
                 
-                // Atajo para scroll top (Ctrl+Alt+T)
                 if (e.ctrlKey && e.altKey && e.key === 't') {
                     scrollTopBtn.click();
                 }
                 
-                // Navegación con teclado en menú
                 if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                     mobileMenuBtn.querySelector('i').classList.add('fa-bars');
@@ -1220,6 +1246,14 @@
                 button.addEventListener('touchend', function() {
                     this.style.transform = '';
                 });
+            });
+            
+            // Asegurar que los botones sean siempre visibles
+            const cardButtons = document.querySelectorAll('.card-btn');
+            cardButtons.forEach(button => {
+                button.style.display = 'flex';
+                button.style.alignItems = 'center';
+                button.style.justifyContent = 'center';
             });
         });
     </script>
