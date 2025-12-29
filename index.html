@@ -19,8 +19,6 @@
             --dark: #050A1E;
             --text: #E2E8F0;
             --text-light: #A0AEC0;
-            --success: #48BB78;
-            --warning: #ED8936;
             --transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
             --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
             --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -67,7 +65,7 @@
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -235,7 +233,7 @@
 
         .slogan {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             opacity: 0.9;
             font-weight: 400;
             max-width: 800px;
@@ -244,7 +242,7 @@
             animation: fadeInUp 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
 
-        /* Botones Premium Mejorados - Más intuitivos */
+        /* Botones Premium Mejorados */
         .btn-container {
             display: flex;
             gap: 20px;
@@ -278,21 +276,9 @@
             cursor: pointer;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            box-shadow: none;
-        }
-
         .btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 215, 0, 0.1);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
         }
 
         .btn:active {
@@ -324,11 +310,17 @@
             height: 300px;
         }
 
-        /* Sección de Servicios Premium */
+        /* Sección de Servicios Premium - MEJORADA */
         .services {
             padding: 100px 20px;
             position: relative;
             background: var(--dark);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .section-title {
@@ -352,26 +344,24 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* Tarjetas de Servicio Premium - Versión mejorada */
+        /* Tarjetas de Servicio Premium - VERSIÓN MEJORADA CON BOTONES VISIBLES */
         .service-card {
-            height: 420px;
+            height: 480px; /* Aumentada la altura */
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
             transition: var(--transition);
             position: relative;
             background: linear-gradient(135deg, rgba(10, 17, 40, 0.9), rgba(26, 58, 143, 0.8));
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
             padding: 40px 30px 30px;
             text-align: center;
             transform-style: preserve-3d;
@@ -380,7 +370,7 @@
         .service-card:hover {
             transform: translateY(-15px) scale(1.02);
             box-shadow: var(--shadow-xl);
-            border-color: rgba(255, 215, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.6);
         }
 
         .service-card-content {
@@ -388,34 +378,45 @@
             z-index: 1;
             transition: var(--transition);
             width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card-icon {
-            font-size: clamp(3rem, 4vw, 4rem);
-            color: var(--accent);
-            margin-bottom: 25px;
-            transition: var(--transition);
-            display: inline-block;
-            padding: 20px;
-            background: rgba(255, 215, 0, 0.1);
+        .card-icon-container {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.2));
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
+            padding: 25px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .card-icon-container {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.3));
+            border-color: rgba(255, 215, 0, 0.6);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            color: var(--accent);
+            transition: var(--transition);
         }
 
         .service-card:hover .card-icon {
-            transform: scale(1.1) rotate(10deg);
-            background: rgba(255, 215, 0, 0.2);
+            transform: rotate(10deg);
         }
 
         .card-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.6rem, 2vw, 2rem);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--light);
             font-weight: 700;
             transition: var(--transition);
@@ -426,18 +427,27 @@
         }
 
         .service-card p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
             font-size: clamp(1rem, 1.1vw, 1.2rem);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             transition: var(--transition);
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* BOTONES MEJORADOS - MÁS VISIBLES Y ACCESIBLES */
+        .card-btn-container {
+            margin-top: auto; /* Empuja el botón hacia abajo */
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
         }
 
         .card-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 35px;
-            background: var(--accent);
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--dark);
             border: none;
             font-weight: 700;
@@ -446,136 +456,115 @@
             text-decoration: none;
             border-radius: 50px;
             transition: var(--transition);
-            font-size: clamp(0.9rem, 1vw, 1.1rem);
-            min-width: 180px;
-            height: 50px;
+            font-size: clamp(1rem, 1.1vw, 1.2rem);
+            min-width: 200px;
+            height: 55px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
             cursor: pointer;
         }
 
         .card-btn i {
-            margin-left: 8px;
+            margin-left: 10px;
             transition: transform 0.3s;
         }
 
         .card-btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        .card-btn:hover i {
-            transform: translateX(5px);
+            background: linear-gradient(135deg, var(--accent-dark), #FFB300);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.6);
         }
 
         .card-btn:active {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
-        /* Testimonios */
-        .testimonials {
+        /* Efecto de brillo en hover */
+        .card-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .card-btn:hover::before {
+            animation: shine 1.5s ease;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                left: 150%;
+                opacity: 0;
+            }
+        }
+
+        /* Sección de características */
+        .features {
             padding: 80px 20px;
             background: rgba(10, 17, 40, 0.7);
         }
 
-        .testimonials-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .testimonial-card {
+        .feature-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 215, 0, 0.3);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--dark);
-        }
-
-        .author-info h4 {
-            color: var(--accent);
-            margin-bottom: 5px;
-        }
-
-        /* Contacto */
-        .contact {
-            padding: 80px 20px;
-            background: var(--dark);
-        }
-
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
             border-radius: var(--radius);
+            padding: 40px 30px;
             border: 1px solid rgba(255, 215, 0, 0.1);
+            text-align: center;
             transition: var(--transition);
         }
 
-        .contact-item:hover {
+        .feature-card:hover {
+            transform: translateY(-10px);
             border-color: rgba(255, 215, 0, 0.3);
-            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
         }
 
-        .contact-item i {
-            font-size: 2.5rem;
+        .feature-icon {
+            font-size: 3rem;
             color: var(--accent);
             margin-bottom: 20px;
         }
 
-        /* Footer Premium */
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        /* Footer Premium Simplificado */
         footer {
             background: var(--primary);
             text-align: center;
-            padding: 80px 20px 30px;
+            padding: 60px 20px 30px;
             color: var(--light);
             position: relative;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
         }
 
         footer::before {
@@ -589,68 +578,22 @@
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: left;
         }
 
-        .footer-section h3 {
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
             color: var(--accent);
             margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background: var(--accent);
-            color: var(--dark);
-            transform: translateY(-3px);
         }
 
         .copyright {
             opacity: 0.7;
             font-size: clamp(0.9rem, 1.1vw, 1.1rem);
-            margin-top: 40px;
+            margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -685,26 +628,6 @@
 
         .whatsapp-btn:active {
             transform: scale(1.05);
-        }
-
-        .whatsapp-label {
-            position: absolute;
-            right: 80px;
-            background: rgba(10, 17, 40, 0.9);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: var(--transition);
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        .whatsapp-btn:hover .whatsapp-label {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         /* Botón de scroll to top */
@@ -792,7 +715,7 @@
             }
             
             .service-card {
-                height: 400px;
+                height: 460px;
             }
             
             .nav-menu {
@@ -854,6 +777,15 @@
                 max-width: 300px;
             }
             
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            .service-card {
+                height: 450px;
+            }
+            
             .whatsapp-btn {
                 width: 60px;
                 height: 60px;
@@ -865,15 +797,6 @@
             .scroll-top {
                 bottom: 90px;
                 right: 20px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .social-links {
-                justify-content: center;
             }
         }
 
@@ -898,17 +821,28 @@
             }
             
             .service-card {
-                height: 380px;
+                height: 420px;
                 padding: 30px 20px;
             }
             
             .card-btn {
-                min-width: 160px;
-                height: 45px;
+                min-width: 180px;
+                height: 50px;
+                padding: 14px 30px;
             }
             
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .card-icon-container {
+                width: 100px;
+                height: 100px;
+                padding: 20px;
+            }
+            
+            .card-icon {
+                font-size: 2.8rem;
             }
         }
 
@@ -933,8 +867,8 @@
                 font-size: 18px;
             }
             
-            .whatsapp-label {
-                display: none;
+            .service-card {
+                height: 400px;
             }
         }
 
@@ -983,8 +917,7 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#hero" class="nav-link active">Inicio</a></li>
                     <li><a href="#services" class="nav-link">Servicios</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonios</a></li>
-                    <li><a href="#contact" class="nav-link">Contacto</a></li>
+                    <li><a href="#features" class="nav-link">Ventajas</a></li>
                 </ul>
             </nav>
         </div>
@@ -997,14 +930,11 @@
     <section class="hero" id="hero">
         <div class="hero-content">
             <h1 class="logo">Servicios Élite<span>Excelencia en cada detalle</span></h1>
-            <p class="slogan">Profesionalismo y calidad premium en cada servicio que ofrecemos</p>
+            <p class="slogan">Profesionalismo y calidad premium en cada servicio que ofrecemos. Tu satisfacción es nuestra prioridad.</p>
             
             <div class="btn-container">
                 <a href="#services" class="btn">
-                    <i class="fas fa-gem"></i> Explorar Servicios
-                </a>
-                <a href="#contact" class="btn btn-outline">
-                    <i class="fas fa-phone-alt"></i> Contactar Ahora
+                    <i class="fas fa-gem"></i> Ver Servicios
                 </a>
             </div>
         </div>
@@ -1019,163 +949,99 @@
                 <!-- Tarjeta 1 -->
                 <div class="service-card">
                     <div class="service-card-content">
-                        <i class="fas fa-laptop-code card-icon"></i>
+                        <div class="card-icon-container">
+                            <i class="fas fa-laptop-code card-icon"></i>
+                        </div>
                         <h3 class="card-title">Mantenimiento de Computadoras</h3>
-                        <p>Tecnología de vanguardia para optimizar el rendimiento de tus equipos. Soluciones integrales para hogares y empresas.</p>
-                        <a href="mc.html" class="card-btn">
-                            Ver detalles <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <p>Soluciones tecnológicas integrales para optimizar el rendimiento de tus equipos. Diagnóstico, reparación y mantenimiento preventivo para hogares y empresas.</p>
+                        <div class="card-btn-container">
+                            <a href="mc.html" class="card-btn">
+                                Ver Detalles <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Tarjeta 2 -->
                 <div class="service-card">
                     <div class="service-card-content">
-                        <i class="fas fa-hand-sparkles card-icon"></i>
+                        <div class="card-icon-container">
+                            <i class="fas fa-hand-sparkles card-icon"></i>
+                        </div>
                         <h3 class="card-title">Uñas Profesionales</h3>
-                        <p>Manicura y pedicura premium con los más altos estándares de calidad. Diseños personalizados y productos de primera.</p>
-                        <a href="unas.html" class="card-btn">
-                            Ver detalles <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <p>Servicios de manicura y pedicura premium con los más altos estándares de higiene y calidad. Diseños personalizados, esmaltado semipermanente y cuidado especializado.</p>
+                        <div class="card-btn-container">
+                            <a href="unas.html" class="card-btn">
+                                Ver Detalles <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Tarjeta 3 -->
                 <div class="service-card">
                     <div class="service-card-content">
-                        <i class="fas fa-cheese card-icon"></i>
+                        <div class="card-icon-container">
+                            <i class="fas fa-cheese card-icon"></i>
+                        </div>
                         <h3 class="card-title">Productos Lácteos Artesanales</h3>
-                        <p>Elaboración artesanal de quesos con ingredientes naturales seleccionados. Tradición y sabor en cada producto.</p>
-                        <a href="quesos.html" class="card-btn">
-                            Ver detalles <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <p>Elaboración artesanal de quesos con ingredientes 100% naturales seleccionados. Tradición, sabor auténtico y calidad premium en cada producto.</p>
+                        <div class="card-btn-container">
+                            <a href="quesos.html" class="card-btn">
+                                Ver Detalles <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Testimonios -->
-    <section class="testimonials" id="testimonials">
+    <!-- Ventajas -->
+    <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <h2 class="section-title">¿Por qué elegirnos?</h2>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Excelente servicio de mantenimiento de computadoras. Mi laptop volvió a funcionar como nueva y el trato fue excepcional."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4>María González</h4>
-                            <p>Cliente desde 2023</p>
-                        </div>
-                    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-award feature-icon"></i>
+                    <h3>Calidad Garantizada</h3>
+                    <p>Utilizamos los mejores materiales y técnicas para asegurar resultados excepcionales en cada servicio.</p>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Las mejores uñas que me han hecho. Detallistas, profesionales y con productos de calidad. ¡Recomendadísimas!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">C</div>
-                        <div class="author-info">
-                            <h4>Carolina Ruiz</h4>
-                            <p>Cliente frecuente</p>
-                        </div>
-                    </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-tie feature-icon"></i>
+                    <h3>Profesionales Certificados</h3>
+                    <p>Nuestro equipo cuenta con certificaciones y años de experiencia en cada especialidad.</p>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Los quesos artesanales son increíbles. Sabor auténtico y calidad premium. Mi familia los prefiere sobre cualquier otra marca."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">J</div>
-                        <div class="author-info">
-                            <h4>Javier López</h4>
-                            <p>Cliente satisfecho</p>
-                        </div>
-                    </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock feature-icon"></i>
+                    <h3>Puntualidad</h3>
+                    <p>Respetamos tu tiempo con horarios exactos y entrega puntual de todos nuestros servicios.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-heart feature-icon"></i>
+                    <h3>Atención Personalizada</h3>
+                    <p>Cada cliente recibe atención individualizada según sus necesidades específicas.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Contacto -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
-            <h2 class="section-title">Contáctanos</h2>
-            <p style="max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem;">Estamos listos para atenderte con la excelencia que mereces</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>Teléfono</h3>
-                    <p>+1 (555) 123-4567</p>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>info@servicioselite.com</p>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Horario</h3>
-                    <p>Lun - Vie: 9am - 7pm</p>
-                    <p>Sábados: 10am - 2pm</p>
-                </div>
-            </div>
-            
-            <a href="#contact" class="btn" style="margin-top: 50px;">
-                <i class="fas fa-calendar-alt"></i> Agendar una cita
-            </a>
         </div>
     </section>
     
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Servicios Élite</h3>
-                <p>Excelencia, profesionalismo y calidad en cada servicio que ofrecemos a nuestros clientes.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Enlaces rápidos</h3>
-                <ul class="footer-links">
-                    <li><a href="#hero">Inicio</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#testimonials">Testimonios</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Servicios</h3>
-                <ul class="footer-links">
-                    <li><a href="mc.html">Mantenimiento de Computadoras</a></li>
-                    <li><a href="unas.html">Uñas Profesionales</a></li>
-                    <li><a href="quesos.html">Productos Lácteos</a></li>
-                </ul>
-            </div>
+            <div class="footer-logo">Servicios Élite</div>
+            <p>Excelencia, profesionalismo y calidad en cada servicio</p>
+            <p class="copyright">© 2025 Servicios Élite - Todos los derechos reservados</p>
         </div>
-        
-        <p class="copyright">© 2025 Servicios Élite - Todos los derechos reservados</p>
     </footer>
     
     <!-- Botón de WhatsApp -->
     <button class="whatsapp-btn" id="whatsappBtn" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-label">¡Contáctanos!</span>
     </button>
     
     <!-- Botón de scroll to top -->
