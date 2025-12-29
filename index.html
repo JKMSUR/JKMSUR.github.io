@@ -242,7 +242,7 @@
             animation: fadeInUp 1s 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
 
-        /* Botones Premium Mejorados */
+        /* Botones Hero - MÁS DESTACADOS */
         .btn-container {
             display: flex;
             gap: 20px;
@@ -255,62 +255,80 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 40px;
+            padding: 20px 45px;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--dark);
             border: none;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-weight: 800;
+            letter-spacing: 1px;
             text-transform: uppercase;
             text-decoration: none;
             position: relative;
             overflow: hidden;
             transition: var(--transition);
             z-index: 1;
-            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            font-size: clamp(1.1rem, 1.3vw, 1.3rem);
             border-radius: var(--radius-xl);
             animation: fadeInUp 1s 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-            min-width: 240px;
-            height: 60px;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+            min-width: 260px;
+            height: 65px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
             cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.6);
         }
 
         .btn:active {
-            transform: translateY(-2px);
+            transform: translateY(-4px) scale(1.02);
             transition: transform 0.1s;
         }
 
         .btn i {
-            margin-right: 12px;
-            font-size: 1.2em;
+            margin-right: 15px;
+            font-size: 1.3em;
         }
 
-        /* Indicador visual para botones */
+        /* Efecto brillante en hover */
         .btn::after {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: var(--transition);
+            opacity: 0;
         }
 
-        .btn:active::after {
-            width: 300px;
-            height: 300px;
+        .btn:hover::after {
+            animation: shine 1.5s ease;
         }
 
-        /* Sección de Servicios Premium - MEJORADA */
+        @keyframes shine {
+            0% {
+                left: -50%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                left: 150%;
+                opacity: 0;
+            }
+        }
+
+        /* Sección de Servicios Premium */
         .services {
             padding: 100px 20px;
             position: relative;
@@ -350,9 +368,9 @@
             margin: 0 auto;
         }
 
-        /* Tarjetas de Servicio Premium - VERSIÓN MEJORADA CON BOTONES VISIBLES */
+        /* Tarjetas de Servicio Premium - BOTONES MEJORADOS */
         .service-card {
-            height: 480px; /* Aumentada la altura */
+            height: 500px; /* Aumentada la altura para botones */
             border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
@@ -362,7 +380,7 @@
             border: 2px solid rgba(255, 215, 0, 0.3);
             display: flex;
             flex-direction: column;
-            padding: 40px 30px 30px;
+            padding: 40px 30px;
             text-align: center;
             transform-style: preserve-3d;
         }
@@ -435,10 +453,10 @@
             flex-grow: 1;
         }
 
-        /* BOTONES MEJORADOS - MÁS VISIBLES Y ACCESIBLES */
+        /* BOTONES DE SERVICIOS - ¡MUY DESTACADOS! */
         .card-btn-container {
-            margin-top: auto; /* Empuja el botón hacia abajo */
-            padding-top: 20px;
+            margin-top: auto;
+            padding-top: 25px;
             border-top: 1px solid rgba(255, 215, 0, 0.1);
         }
 
@@ -446,41 +464,48 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 40px;
+            padding: 18px 45px;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: var(--dark);
             border: none;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-weight: 800;
+            letter-spacing: 1px;
             text-transform: uppercase;
             text-decoration: none;
             border-radius: 50px;
             transition: var(--transition);
-            font-size: clamp(1rem, 1.1vw, 1.2rem);
-            min-width: 200px;
-            height: 55px;
+            font-size: clamp(1.1rem, 1.2vw, 1.2rem);
+            min-width: 220px;
+            height: 60px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
             cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .card-btn i {
-            margin-left: 10px;
+            margin-left: 12px;
+            font-size: 1.2em;
             transition: transform 0.3s;
         }
 
         .card-btn:hover {
             background: linear-gradient(135deg, var(--accent-dark), #FFB300);
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.6);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .card-btn:hover i {
+            transform: translateX(8px);
         }
 
         .card-btn:active {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* Efecto de brillo en hover */
+        /* Efecto de brillo para botones de tarjetas */
         .card-btn::before {
             content: '';
             position: absolute;
@@ -501,20 +526,6 @@
 
         .card-btn:hover::before {
             animation: shine 1.5s ease;
-        }
-
-        @keyframes shine {
-            0% {
-                left: -50%;
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                left: 150%;
-                opacity: 0;
-            }
         }
 
         /* Sección de características */
@@ -605,9 +616,9 @@
             right: 30px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            font-size: 24px;
-            width: 70px;
-            height: 70px;
+            font-size: 28px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -622,21 +633,21 @@
         }
 
         .whatsapp-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
         }
 
         .whatsapp-btn:active {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         /* Botón de scroll to top */
         .scroll-top {
             position: fixed;
-            bottom: 110px;
+            bottom: 120px;
             right: 30px;
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             background: rgba(255, 215, 0, 0.2);
             color: var(--accent);
             border: none;
@@ -644,7 +655,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
             transition: var(--transition);
             opacity: 0;
@@ -704,8 +715,8 @@
             }
             
             .btn {
-                min-width: 220px;
-                height: 55px;
+                min-width: 240px;
+                height: 60px;
             }
         }
 
@@ -715,7 +726,7 @@
             }
             
             .service-card {
-                height: 460px;
+                height: 480px;
             }
             
             .nav-menu {
@@ -774,7 +785,8 @@
             
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 320px;
+                height: 65px;
             }
             
             .services-grid {
@@ -783,20 +795,25 @@
             }
             
             .service-card {
-                height: 450px;
+                height: 460px;
             }
             
             .whatsapp-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 20px;
+                width: 65px;
+                height: 65px;
+                font-size: 24px;
                 bottom: 20px;
                 right: 20px;
             }
             
             .scroll-top {
-                bottom: 90px;
+                bottom: 100px;
                 right: 20px;
+            }
+            
+            .card-btn {
+                min-width: 200px;
+                height: 55px;
             }
         }
 
@@ -814,21 +831,21 @@
             }
             
             .btn {
-                padding: 15px 30px;
-                font-size: 1rem;
-                min-width: 200px;
-                height: 50px;
+                padding: 18px 35px;
+                font-size: 1.1rem;
+                min-width: 220px;
+                height: 60px;
             }
             
             .service-card {
-                height: 420px;
+                height: 440px;
                 padding: 30px 20px;
             }
             
             .card-btn {
                 min-width: 180px;
-                height: 50px;
-                padding: 14px 30px;
+                height: 55px;
+                padding: 16px 35px;
             }
             
             .section-title {
@@ -856,19 +873,25 @@
             }
             
             .btn {
-                min-width: 180px;
-                height: 45px;
-                padding: 12px 25px;
+                min-width: 200px;
+                height: 55px;
+                padding: 16px 30px;
             }
             
             .whatsapp-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 18px;
+                width: 60px;
+                height: 60px;
+                font-size: 22px;
             }
             
             .service-card {
-                height: 400px;
+                height: 420px;
+            }
+            
+            .card-btn {
+                min-width: 160px;
+                height: 50px;
+                padding: 14px 30px;
             }
         }
 
